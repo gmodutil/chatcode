@@ -51,17 +51,26 @@
         Or you can set by identifier
         {rainbow} rainbow text
 
+
+    --[=[ PLANNED BELOW ]=]--
     Links:
         <https://github.com/garryspins>
 
         If not provided http or https then it defaults to https
 ]]--
 
+local version = 1
+
+if chatcode and chatcode.version <= version then
+    return
+end
+
 do -- Global Initialization
     chatcode = chatcode or {}
     chatcode.lexer = chatcode.lexer or {}
     chatcode.parser = chatcode.parser or {}
     chatcode.debug = chatcode.debug or {}
+    chatcode.version = version
 
     setmetatable(chatcode, {__call = function(s, text)
         return s.parser.Parse(s.lexer.Lex(text))
@@ -327,6 +336,6 @@ end
 if melon and _p and GAMEMODE then
     print()
 
-    local test = "-> `lua` {#FF0} `yellow` **bold text** *italics text {#F00} cum* {* this_is_ignored}"
+    local test = "<https://urgay.xyz>"
     chatcode.debug.Print(test)
 end
