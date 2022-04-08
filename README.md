@@ -17,7 +17,6 @@ PrintTable(chatcode(toparse))
 |Quote|       `-> message`|`$\-\>`| 
 |Inline Code| <code>\`print(123)\`</code>|
 |Colored Text| `{#F00} Red Text Here` |
-|Links|`<https://github.com/garryspins>`|
 
 # API Reference
 ```lua
