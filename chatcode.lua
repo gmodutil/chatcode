@@ -62,6 +62,10 @@ do -- Global Initialization
     chatcode.lexer = chatcode.lexer or {}
     chatcode.parser = chatcode.parser or {}
     chatcode.debug = chatcode.debug or {}
+
+    setmetatable(chatcode, {__call = function(s, text)
+        return s.parser.Parse(s.lexer.Lex(text))
+    end })
 end
 
 do -- Lexer
@@ -323,6 +327,6 @@ end
 if melon and _p and GAMEMODE then
     print()
 
-    local test = "-> `lua` {#FF0} `yellow` **bold text** *italics text {#F00} test* {* this_is_ignored}"
+    local test = "-> `lua` {#FF0} `yellow` **bold text** *italics text {#F00} cum* {* this_is_ignored}"
     chatcode.debug.Print(test)
 end
